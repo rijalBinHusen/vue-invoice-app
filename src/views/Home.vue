@@ -46,6 +46,12 @@ export default {
     };
   },
   components: {},
+  methods: {
+    newInvoice() {},
+    toggleFilterMenu() {
+      this.filterMenu = !this.filterMenu
+    },
+  }
 };
 </script>
 
@@ -76,6 +82,7 @@ export default {
         }
 
         .filter {
+          cursor: pointer;
           position: relative;
           margin-right: 40px;
 
@@ -107,6 +114,25 @@ export default {
             &:hover {
               color: #1e2139;
               background-color: #fff;
+            }
+          }
+        }
+        
+        .button {
+          padding: 8px 10px;
+          background-color: #7c5dfa;
+          border-radius: 40px;
+
+          .inner-button {
+            margin-right: 8px;
+            border-radius: 50%;
+            padding: 8px;
+            align-items: center;
+            justify-content: center;
+            background-color: #fff;
+            img: {
+              width: 10px;
+              height: 10px;
             }
           }
         }
