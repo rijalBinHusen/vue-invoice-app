@@ -123,7 +123,7 @@
 </template>
 
 <script>
-// import db from "../firebase/firebaseInit";
+import db from "../firebase/firebaseInit";
 // import Loading from "../components/Loading";
 import { mapMutations } from "vuex";
 import { uid } from "uid";
@@ -223,64 +223,64 @@ export default {
       this.invoiceItemList = this.invoiceItemList.filter((item) => item.id !== id);
     },
 
-//     calInvoiceTotal() {
-//       this.invoiceTotal = 0;
-//       this.invoiceItemList.forEach((item) => {
-//         this.invoiceTotal += item.total;
-//       });
-//     },
+    calInvoiceTotal() {
+      this.invoiceTotal = 0;
+      this.invoiceItemList.forEach((item) => {
+        this.invoiceTotal += item.total;
+      });
+    },
 
-//     publishInvoice() {
-//       this.invoicePending = true;
-//     },
+    publishInvoice() {
+      this.invoicePending = true;
+    },
 
-//     saveDraft() {
-//       this.invoiceDraft = true;
-//     },
+    saveDraft() {
+      this.invoiceDraft = true;
+    },
 
-//     async uploadInvoice() {
-//       if (this.invoiceItemList.length <= 0) {
-//         alert("Please ensure you filled out work items!");
-//         return;
-//       }
+    async uploadInvoice() {
+      if (this.invoiceItemList.length <= 0) {
+        alert("Please ensure you filled out work items!");
+        return;
+      }
 
 //       this.loading = true;
 
-//       this.calInvoiceTotal();
+      this.calInvoiceTotal();
 
-//       const dataBase = db.collection("invoices").doc();
+      const dataBase = db.collection("invoices").doc();
 
-//       await dataBase.set({
-//         invoiceId: uid(6),
-//         billerStreetAddress: this.billerStreetAddress,
-//         billerCity: this.billerCity,
-//         billerZipCode: this.billerZipCode,
-//         billerCountry: this.billerCountry,
-//         clientName: this.clientName,
-//         clientEmail: this.clientEmail,
-//         clientStreetAddress: this.clientStreetAddress,
-//         clientCity: this.clientCity,
-//         clientZipCode: this.clientZipCode,
-//         clientCountry: this.clientCountry,
-//         invoiceDate: this.invoiceDate,
-//         invoiceDateUnix: this.invoiceDateUnix,
-//         paymentTerms: this.paymentTerms,
-//         paymentDueDate: this.paymentDueDate,
-//         paymentDueDateUnix: this.paymentDueDateUnix,
-//         productDescription: this.productDescription,
-//         invoiceItemList: this.invoiceItemList,
-//         invoiceTotal: this.invoiceTotal,
-//         invoicePending: this.invoicePending,
-//         invoiceDraft: this.invoiceDraft,
-//         invoicePaid: null,
-//       });
+      await dataBase.set({
+        invoiceId: uid(6),
+        billerStreetAddress: this.billerStreetAddress,
+        billerCity: this.billerCity,
+        billerZipCode: this.billerZipCode,
+        billerCountry: this.billerCountry,
+        clientName: this.clientName,
+        clientEmail: this.clientEmail,
+        clientStreetAddress: this.clientStreetAddress,
+        clientCity: this.clientCity,
+        clientZipCode: this.clientZipCode,
+        clientCountry: this.clientCountry,
+        invoiceDate: this.invoiceDate,
+        invoiceDateUnix: this.invoiceDateUnix,
+        paymentTerms: this.paymentTerms,
+        paymentDueDate: this.paymentDueDate,
+        paymentDueDateUnix: this.paymentDueDateUnix,
+        productDescription: this.productDescription,
+        invoiceItemList: this.invoiceItemList,
+        invoiceTotal: this.invoiceTotal,
+        invoicePending: this.invoicePending,
+        invoiceDraft: this.invoiceDraft,
+        invoicePaid: null,
+      });
 
 //       this.loading = false;
 
-//       this.TOGGLE_INVOICE();
+      this.TOGGLE_INVOICE();
 
 //       this.GET_INVOICES();
-//     },
+    },
 
 //     async updateInvoice() {
 //       if (this.invoiceItemList.length <= 0) {
@@ -323,13 +323,13 @@ export default {
 //       this.UPDATE_INVOICE(data);
 //     },
 
-//     submitForm() {
-//       if (this.editInvoice) {
-//         this.updateInvoice();
-//         return;
-//       }
-//       this.uploadInvoice();
-//     },
+    submitForm() {
+      if (this.editInvoice) {
+        this.updateInvoice();
+        return;
+      }
+      this.uploadInvoice();
+    },
 //   },
 //   computed: {
 //     ...mapState(["editInvoice", "currentInvoiceArray"]),
