@@ -126,7 +126,7 @@
 // import db from "../firebase/firebaseInit";
 // import Loading from "../components/Loading";
 import { mapMutations } from "vuex";
-// import { uid } from "uid";
+import { uid } from "uid";
 export default {
   name: "invoiceModal",
   data() {
@@ -209,19 +209,19 @@ export default {
       }
     },
 
-//     addNewInvoiceItem() {
-//       this.invoiceItemList.push({
-//         id: uid(),
-//         itemName: "",
-//         qty: "",
-//         price: 0,
-//         total: 0,
-//       });
+    addNewInvoiceItem() {
+      this.invoiceItemList.push({
+        id: uid(),
+        itemName: "",
+        qty: "",
+        price: 0,
+        total: 0,
+      });
     },
 
-//     deleteInvoiceItem(id) {
-//       this.invoiceItemList = this.invoiceItemList.filter((item) => item.id !== id);
-//     },
+    deleteInvoiceItem(id) {
+      this.invoiceItemList = this.invoiceItemList.filter((item) => item.id !== id);
+    },
 
 //     calInvoiceTotal() {
 //       this.invoiceTotal = 0;
@@ -333,7 +333,7 @@ export default {
 //   },
 //   computed: {
 //     ...mapState(["editInvoice", "currentInvoiceArray"]),
-//   },
+  },
   watch: {
     paymentTerms() {
       const futureDate = new Date();
