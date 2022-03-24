@@ -125,7 +125,7 @@
 <script>
 // import db from "../firebase/firebaseInit";
 // import Loading from "../components/Loading";
-// import { mapActions, mapMutations, mapState } from "vuex";
+import { mapMutations } from "vuex";
 // import { uid } from "uid";
 export default {
   name: "invoiceModal",
@@ -159,11 +159,11 @@ export default {
 //   components: {
 //     Loading,
 //   },
-//   created() {
+  created() {
 //     // get current date for invoice date field
 //     if (!this.editInvoice) {
-//       this.invoiceDateUnix = Date.now();
-//       this.invoiceDate = new Date(this.invoiceDateUnix).toLocaleDateString("en-us", this.dateOptions);
+      this.invoiceDateUnix = Date.now();
+      this.invoiceDate = new Date(this.invoiceDateUnix).toLocaleDateString("en-us", this.dateOptions);
 //     }
 
 //     if (this.editInvoice) {
@@ -190,9 +190,9 @@ export default {
 //       this.invoiceItemList = currentInvoice.invoiceItemList;
 //       this.invoiceTotal = currentInvoice.invoiceTotal;
 //     }
-//   },
-//   methods: {
-//     ...mapMutations(["TOGGLE_INVOICE", "TOGGLE_MODAL", "TOGGLE_EDIT_INVOICE"]),
+  },
+  methods: {
+    ...mapMutations(["TOGGLE_INVOICE", "TOGGLE_MODAL", "TOGGLE_EDIT_INVOICE"]),
 
 //     ...mapActions(["UPDATE_INVOICE", "GET_INVOICES"]),
 
@@ -202,12 +202,12 @@ export default {
 //       }
 //     },
 
-//     closeInvoice() {
-//       this.TOGGLE_INVOICE();
-//       if (this.editInvoice) {
-//         this.TOGGLE_EDIT_INVOICE();
-//       }
-//     },
+    closeInvoice() {
+      this.TOGGLE_INVOICE();
+      if (this.editInvoice) {
+        this.TOGGLE_EDIT_INVOICE();
+      }
+    },
 
 //     addNewInvoiceItem() {
 //       this.invoiceItemList.push({
@@ -217,7 +217,7 @@ export default {
 //         price: 0,
 //         total: 0,
 //       });
-//     },
+    },
 
 //     deleteInvoiceItem(id) {
 //       this.invoiceItemList = this.invoiceItemList.filter((item) => item.id !== id);
@@ -334,13 +334,13 @@ export default {
 //   computed: {
 //     ...mapState(["editInvoice", "currentInvoiceArray"]),
 //   },
-//   watch: {
-//     paymentTerms() {
-//       const futureDate = new Date();
-//       this.paymentDueDateUnix = futureDate.setDate(futureDate.getDate() + parseInt(this.paymentTerms));
-//       this.paymentDueDate = new Date(this.paymentDueDateUnix).toLocaleDateString("en-us", this.dateOptions);
-//     },
-//   },
+  watch: {
+    paymentTerms() {
+      const futureDate = new Date();
+      this.paymentDueDateUnix = futureDate.setDate(futureDate.getDate() + parseInt(this.paymentTerms));
+      this.paymentDueDate = new Date(this.paymentDueDateUnix).toLocaleDateString("en-us", this.dateOptions);
+    },
+  },
 };
 </script>
 
