@@ -130,9 +130,14 @@ export default {
             align-items: center;
             justify-content: center;
             background-color: #fff;
-            img: {
+            
+            img {
               width: 10px;
               height: 10px;
+            }
+
+            span {
+              background-color: #7c5dfa;
             }
           }
         }
