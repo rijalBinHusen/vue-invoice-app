@@ -124,7 +124,7 @@
 
 <script>
 import db from "../firebase/firebaseInit";
-// import Loading from "../components/Loading";
+import Loading from "../components/Loading";
 import { mapMutations } from "vuex";
 import { uid } from "uid";
 export default {
@@ -156,9 +156,9 @@ export default {
       invoiceTotal: 0,
     };
   },
-//   components: {
-//     Loading,
-//   },
+  components: {
+    Loading,
+  },
   created() {
 //     // get current date for invoice date field
 //     if (!this.editInvoice) {
@@ -244,7 +244,7 @@ export default {
         return;
       }
 
-//       this.loading = true;
+      this.loading = true;
 
       this.calInvoiceTotal();
 
@@ -275,7 +275,7 @@ export default {
         invoicePaid: null,
       });
 
-//       this.loading = false;
+      this.loading = false;
 
       this.TOGGLE_INVOICE();
 
