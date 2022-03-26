@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import { mapState } from "vuex"
+import { mapState, mapActions } from "vuex"
 
 import InvoiceModal from "./components/InvoiceModal.vue"
 import Navigation from "./components/Navigation.vue"
@@ -36,6 +36,8 @@ export default {
     Modal,
   },
   methods: {
+    ...mapActions(["GET_INVOICES"]),
+
     checkScreen() {
       const windowWidth = window.innerWidth;
       if(windowWidth <= 750) {
@@ -46,6 +48,7 @@ export default {
     }
   },
   created() {
+    this.GET_INVOICES();
     this.checkScreen()
     window.addEventListener("resize", this.checkScreen)
   },
@@ -75,6 +78,7 @@ export default {
   }
 
   .app-content {
+    width: 100%;
     padding: 0 20px;
     position: relative;
   }
