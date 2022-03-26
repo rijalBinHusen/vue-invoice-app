@@ -196,11 +196,11 @@ export default {
 
 //     ...mapActions(["UPDATE_INVOICE", "GET_INVOICES"]),
 
-//     checkClick(e) {
-//       if (e.target === this.$refs.invoiceWrap) {
-//         this.TOGGLE_MODAL();
-//       }
-//     },
+    checkClick(e) {
+      if (e.target === this.$refs.invoiceWrap) {
+        this.TOGGLE_MODAL();
+      }
+    },
 
     closeInvoice() {
       this.TOGGLE_INVOICE();
@@ -364,7 +364,7 @@ export default {
     padding: 56px;
     max-width: 700px;
     width: 100%;
-    background-color: #141625;
+    // background-color: #141625;
     color: #fff;
     box-shadow: 10px 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 

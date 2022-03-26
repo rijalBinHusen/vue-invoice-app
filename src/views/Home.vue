@@ -89,7 +89,7 @@ export default {
 
         .filter {
           cursor: pointer;
-          position: relative;
+          // position: relative;
           margin-right: 40px;
 
           span,
