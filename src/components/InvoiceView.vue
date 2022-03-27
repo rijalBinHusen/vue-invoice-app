@@ -99,8 +99,8 @@
 </template>
 
 <script>
-// import { mapActions, mapMutations, mapState } from "vuex";
-import { mapMutations, mapState } from "vuex";
+import { mapActions, mapMutations, mapState } from "vuex";
+// import { mapMutations, mapState } from "vuex";
 
 export default {
   name: "invoiceView",
@@ -114,36 +114,36 @@ export default {
   },
   methods: {
     ...mapMutations(["SET_CURRENT_INVOICE", "TOGGLE_EDIT_INVOICE", "TOGGLE_INVOICE"]),
-    // ...mapActions(["DELETE_INVOICE", "UPDATE_STATUS_TO_PENDING", "UPDATE_STATUS_TO_PAID"]),
+    ...mapActions(["DELETE_INVOICE", "UPDATE_STATUS_TO_PENDING", "UPDATE_STATUS_TO_PAID"]),
     getCurrentInvoice() {
       this.SET_CURRENT_INVOICE(this.$route.params.invoiceId);
       this.currentInvoice = this.currentInvoiceArray[0];
     },
-    // toggleEditInvoice() {
-    //   this.TOGGLE_EDIT_INVOICE();
-    //   this.TOGGLE_INVOICE();
-    // },
-    // async deleteInvoice(docId) {
-    //   await this.DELETE_INVOICE(docId);
-    //   this.$router.push({ name: "Home" });
-    // },
-    // updateStatusToPaid(docId) {
-    //   this.UPDATE_STATUS_TO_PAID(docId);
-    // },
-    // updateStatusToPending(docId) {
-    //   this.UPDATE_STATUS_TO_PENDING(docId);
-    // },
+    toggleEditInvoice() {
+      this.TOGGLE_EDIT_INVOICE();
+      this.TOGGLE_INVOICE();
+    },
+    async deleteInvoice(docId) {
+      await this.DELETE_INVOICE(docId);
+      this.$router.push({ name: "Home" });
+    },
+    updateStatusToPaid(docId) {
+      this.UPDATE_STATUS_TO_PAID(docId);
+    },
+    updateStatusToPending(docId) {
+      this.UPDATE_STATUS_TO_PENDING(docId);
+    },
   },
   computed: {
     ...mapState(["currentInvoiceArray", "editInvoice"]),
   },
-//   watch: {
-//     editInvoice() {
-//       if (!this.editInvoice) {
-//         this.currentInvoice = this.currentInvoiceArray[0];
-//       }
-//     },
-//   },
+  watch: {
+    editInvoice() {
+      if (!this.editInvoice) {
+        this.currentInvoice = this.currentInvoiceArray[0];
+      }
+    },
+  },
 };
 </script>
 
