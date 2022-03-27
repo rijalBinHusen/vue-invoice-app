@@ -1,6 +1,6 @@
 <template>
   <router-link class="invoice flex" :to="{ name: 'Invoice', params: { invoiceId: invoice.invoiceId } }">
-    <div class="invoice">
+    <div class="">
     <div class="left flex">
       <span class="tracking-number">#{{ invoice.invoiceId }}</span>
       <span class="due-date">{{ invoice.paymentDueDate }}</span>
@@ -34,6 +34,7 @@ export default {
 <style lang="scss" scoped>
 .invoice {
   text-decoration: none;
+  width: 100%;
   cursor: pointer;
   gap: 16px;
   margin-bottom: 16px;
